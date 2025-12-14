@@ -1,0 +1,11 @@
+{
+  "controller": "UMJAM",
+  "stability_condition": "lambda_max(K) < 1",
+  "envelopes": [
+    "RUN",
+    "SAFE",
+    "FREEZE",
+    "QUARANTINE"
+  ],
+  "manual_override": false
+}
