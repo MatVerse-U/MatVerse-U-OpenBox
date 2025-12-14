@@ -1,0 +1,15 @@
+flowchart LR
+    subgraph WHY[Ciclo do "Por Quê"]
+        A[Falha] --> B[Investigação]
+        B --> C[XAI]
+        C --> D[Relatório]
+        D --> E[Nada muda]
+        E --> A
+    end
+
+    subgraph GOV[Ciclo da Governança]
+        X[Pedido] --> Y[Medição de Risco]
+        Y --> Z[Gate]
+        Z -->|ALLOW| R[Executa]
+        Z -->|BLOCK| S[Contém]
+    end
