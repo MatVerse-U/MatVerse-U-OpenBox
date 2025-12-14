@@ -1,0 +1,9 @@
+{
+  "contract": "EXECUTION_OR_INTERDICTION",
+  "rules": {
+    "ALLOW": "risk <= threshold_allow",
+    "DEGRADE": "threshold_allow < risk < threshold_block",
+    "BLOCK": "risk >= threshold_block"
+  },
+  "human_override": false
+}
