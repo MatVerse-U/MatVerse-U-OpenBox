@@ -14,12 +14,17 @@ class Ledger:
 
     def append(self, event):
         payload = {
-            "timestamp": time.time(),
+            "timestamp": int(time.time() * 1000),
             "event": event,
             "prev_hash": self.last_hash,
         }
 
-        encoded = json.dumps(payload, sort_keys=True).encode()
+        encoded = json.dumps(
+            payload,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+        ).encode("utf-8")
         h = hashlib.sha256(encoded).hexdigest()
 
         payload["hash"] = h
