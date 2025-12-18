@@ -70,9 +70,10 @@ Neste projeto, governança significa:
 
 1. `OPEN_LETTER.md`  
 2. `WHY_NOT_XAI.md`  
-3. `diagrams/why_vs_governance.md`  
-4. `GOVERNANCE.md`  
+3. `diagrams/why_vs_governance.md`
+4. `GOVERNANCE.md`
 5. Código em `openbox/`
+6. Visão epistêmica e comercial em `SYMBIOS.md`
 
 ---
 

@@ -49,6 +49,7 @@ def replay_and_verify(entries):
             raise RuntimeError(
                 f"Ledger integrity violation: hash mismatch at index {idx} (expected {entry['hash']}, got {h})"
             )
+            raise RuntimeError("Ledger integrity violation: hash mismatch")
 
         last_hash = h
 
