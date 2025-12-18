@@ -22,10 +22,18 @@ def replay_and_verify(entries):
             "prev_hash": entry["prev_hash"],
         }
 
-        encoded = json.dumps(payload, sort_keys=True).encode()
+        encoded = json.dumps(
+            payload,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+        ).encode("utf-8")
         h = hashlib.sha256(encoded).hexdigest()
 
         if h != entry["hash"]:
+            raise RuntimeError(
+                f"Ledger integrity violation: hash mismatch at index {idx} (expected {entry['hash']}, got {h})"
+            )
             raise RuntimeError("Ledger integrity violation: hash mismatch")
 
         last_hash = h
