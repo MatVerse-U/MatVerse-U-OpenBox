@@ -14,7 +14,7 @@ class Ledger:
 
     def append(self, event):
         payload = {
-            "timestamp": time.time(),
+            "timestamp": int(time.time() * 1000),
             "event": event,
             "prev_hash": self.last_hash,
         }

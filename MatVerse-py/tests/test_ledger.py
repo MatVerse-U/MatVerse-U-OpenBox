@@ -32,3 +32,23 @@ def test_ledger_detects_hash_tampering():
 
     with pytest.raises(RuntimeError):
         replay_and_verify(ledger.entries)
+
+
+def test_ledger_rejects_non_hex_hashes():
+    ledger = Ledger()
+    ledger.append({"a": 1})
+
+    ledger.entries[0]["hash"] = "zz" * 32
+
+    with pytest.raises(RuntimeError):
+        replay_and_verify(ledger.entries)
+
+
+def test_ledger_rejects_non_int_timestamp():
+    ledger = Ledger()
+    ledger.append({"a": 1})
+
+    ledger.entries[0]["timestamp"] = "123"
+
+    with pytest.raises(RuntimeError):
+        replay_and_verify(ledger.entries)
